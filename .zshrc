@@ -3,6 +3,9 @@ ZSH_THEME=robbyrussell
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
+# locale
+export LC_ALL=en_US.UTF-8
+
 # dotfiles
 DOTFILES=~/dotfiles
 ZSH=$HOME/.oh-my-zsh
@@ -29,3 +32,4 @@ source $ZSH/oh-my-zsh.sh
 
 # fuzzy search
 source $DOTFILES/.fzf.zsh
+bindkey "ç" fzf-cd-widget
