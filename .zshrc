@@ -18,6 +18,8 @@ alias bashconfig="vim $DOTFILES/.bashrc"
 alias fzfconfig="vim $DOTFILES/.fzf.zsh"
 alias cl=clear
 alias fzf="fzf-cd-widget"
+alias cat="ccat $*"
+alias cat0="/bin/cat $*" # for cases when you need plain `cat`
 
 # git aliasses
 alias gst="git status"
@@ -71,3 +73,6 @@ zle -N zle-keymap-select
 
 # Reduce latency when pressing <Esc>
 export KEYTIMEOUT=1
+
+# Syntax highlighting
+source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
