@@ -17,7 +17,6 @@ alias zshconfig="vim $DOTFILES/.zshrc"
 alias bashconfig="vim $DOTFILES/.bashrc"
 alias fzfconfig="vim $DOTFILES/.fzf.zsh"
 alias cl=clear
-alias fzf="fzf-cd-widget"
 alias cat="ccat $*"
 alias cat0="/bin/cat $*" # for cases when you need plain `cat`
 
@@ -36,6 +35,7 @@ source $ZSH/oh-my-zsh.sh
 # fuzzy search
 source $DOTFILES/.fzf.zsh
 bindkey "ç" fzf-cd-widget
+alias fzf=fzf-cd-widget
 
 # Use vim editing mode in terminal [escape to enter normal mode]
 bindkey -v
@@ -75,4 +75,6 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 # Syntax highlighting
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-z.plugin.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

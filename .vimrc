@@ -24,6 +24,8 @@ Plug 'sheerun/vim-polyglot'
 "" theme
 Plug 'joshdick/onedark.vim'
 
+"" prettier
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 syntax on
@@ -36,3 +38,11 @@ nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --excl
 " linting
 let g:ale_linters = {'javascript': ['eslint'],'python': ['pylint']}
 
+" auto bracket closing
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
