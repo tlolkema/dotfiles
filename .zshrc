@@ -1,14 +1,8 @@
-# main
-ZSH_THEME=robbyrussell
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-
 # locale
 export LC_ALL=en_US.UTF-8
 
 # dotfiles
 DOTFILES=~/dotfiles
-ZSH=$HOME/.oh-my-zsh
 
 # aliasses
 alias activate="source env/bin/activate"
@@ -24,23 +18,12 @@ alias gaa="git add ."
 alias gfu="git fetch upstream"
 alias gru="git rebase upstream/master"
 
-#plugins
-plugins=(
-  git
-  brew
-  docker
-  npm
-  osx
-)
-
-#source oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
 #antigen
 source $DOTFILES/antigen.zsh 
-#antigen use oh-my-zsh
-antigen bundle git
-antigen bundle docker
+antigen use oh-my-zsh
+antigen bundle z
+antigen bundle git-flow
+antigen theme jackharrisonsherlock/common
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
