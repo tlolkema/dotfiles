@@ -17,8 +17,6 @@ alias zshconfig="vim $DOTFILES/.zshrc"
 alias bashconfig="vim $DOTFILES/.bashrc"
 alias fzfconfig="vim $DOTFILES/.fzf.zsh"
 alias cl=clear
-alias cat="ccat $*"
-alias cat0="/bin/cat $*" # for cases when you need plain `cat`
 
 # git aliasses
 alias gst="git status"
@@ -27,10 +25,25 @@ alias gfu="git fetch upstream"
 alias gru="git rebase upstream/master"
 
 #plugins
-plugins=(git)
+plugins=(
+  git
+  brew
+  docker
+  npm
+  osx
+)
 
 #source oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+#antigen
+source $DOTFILES/antigen.zsh 
+#antigen use oh-my-zsh
+antigen bundle git
+antigen bundle docker
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
 
 # fuzzy search
 source $DOTFILES/.fzf.zsh
@@ -74,7 +87,6 @@ zle -N zle-keymap-select
 # Reduce latency when pressing <Esc>
 export KEYTIMEOUT=1
 
-# Syntax highlighting
-source ~/.zsh/zsh-z.plugin.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+DISABLE_AUTO_TITLE="true"
+
 
