@@ -9,7 +9,6 @@ alias activate="source env/bin/activate"
 alias vimconfig="vim $DOTFILES/.vimrc"
 alias zshconfig="vim $DOTFILES/.zshrc"
 alias bashconfig="vim $DOTFILES/.bashrc"
-alias fzfconfig="vim $DOTFILES/.fzf.zsh"
 alias cl=clear
 
 # git aliasses
@@ -27,11 +26,6 @@ antigen theme jackharrisonsherlock/common
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen apply
-
-# fuzzy search
-source $DOTFILES/.fzf.zsh
-bindkey "ç" fzf-cd-widget
-alias fzf=fzf-cd-widget
 
 # Use vim editing mode in terminal [escape to enter normal mode]
 bindkey -v
