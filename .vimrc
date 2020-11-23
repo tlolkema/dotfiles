@@ -30,6 +30,8 @@ call plug#end()
 
 syntax on
 colorscheme onedark
+hi Normal ctermbg=none
+
 set number
 
 " remappings
