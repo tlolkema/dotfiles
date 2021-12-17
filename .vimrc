@@ -1,5 +1,6 @@
 " .vimrc
 
+set re=0
 
 " autoload vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -32,7 +33,7 @@ syntax on
 colorscheme onedark
 hi Normal ctermbg=none
 
-set number
+set relativenumber
 
 " remappings
 nnoremap <expr> <C-p> (len(system('git rev-parse')) ? ':Files' : ':GFiles --exclude-standard --others --cached')."\<cr>"
