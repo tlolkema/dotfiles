@@ -1,6 +1,6 @@
 "" CoC Vim Config
 
-let g:coc_global_extensions = ['coc-jedi', 'coc-tsserver', 'coc-json', 'coc-prettier'] 
+let g:coc_global_extensions = ['coc-jedi', 'coc-tsserver', 'coc-prettier'] 
 
 " Bigger messages display.
 set cmdheight=1
