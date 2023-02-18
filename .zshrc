@@ -4,10 +4,13 @@ export LC_ALL=en_US.UTF-8
 # dotfiles
 DOTFILES=~/dotfiles
 
+# Set Starship prompt
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=$DOTFILES/starship.toml
+
 # aliasses
 alias activate="source env/bin/activate"
 alias zshconfig="vim $DOTFILES/.zshrc"
-alias bashconfig="vim $DOTFILES/.bashrc"
 alias cl=clear
 alias vim=nvim
 
@@ -19,14 +22,6 @@ alias gfo="git fetch origin"
 alias gru="git rebase upstream/master"
 alias gro="git rebase origin/main"
 alias gca="git commit --amend --no-edit"
-
-#antigen
-source $DOTFILES/antigen.zsh 
-antigen bundle z
-antigen theme jackharrisonsherlock/common
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
 
 # Use vim editing mode in terminal [escape to enter normal mode]
 bindkey -v
