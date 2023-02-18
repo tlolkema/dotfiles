@@ -2,15 +2,10 @@
 touch ~/.hushlogin
 
 # Create .config directory if it doesn't exist
-if [ ! -d ~/.config ] ; then
-    mkdir ~/.config
-fi
+[ ! -d ~/.config ] && mkdir ~/.config
 
 # Create .config/nvim directory and init.lua file if it doesn't exist
-if [ ! -f ~/.config/nvim/init.lua ] ; then
-    mkdir ~/.config/nvim
-    touch ~/.config/nvim/init.lua
-fi
+[ ! -f ~/.config/nvim/init.lua ] && mkdir ~/.config/nvim && touch ~/.config/nvim/init.lua
 
 # Remove initial dotfiles if present
 rm ~/.config/nvim/init.lua
