@@ -1,20 +1,20 @@
-# locale
+# Locale
 export LC_ALL=en_US.UTF-8
 
-# dotfiles
+# Dotfiles
 DOTFILES=~/dotfiles
 
 # Set Starship prompt
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=$DOTFILES/starship.toml
 
-# aliasses
+# Aliasses
 alias activate="source env/bin/activate"
 alias zshconfig="vim $DOTFILES/.zshrc"
 alias cl=clear
 alias vim=nvim
 
-# git aliasses
+# Git aliasses
 alias gst="git status"
 alias gaa="git add ."
 alias gfu="git fetch upstream"
@@ -22,6 +22,13 @@ alias gfo="git fetch origin"
 alias gru="git rebase upstream/master"
 alias gro="git rebase origin/main"
 alias gca="git commit --amend --no-edit"
+
+# Plugins
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "hlissner/zsh-autopair"
+plug "agkozak/zsh-z"
 
 # Use vim editing mode in terminal [escape to enter normal mode]
 bindkey -v
