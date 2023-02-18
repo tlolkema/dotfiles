@@ -6,10 +6,10 @@ DOTFILES=~/dotfiles
 
 # aliasses
 alias activate="source env/bin/activate"
-alias vimconfig="vim $DOTFILES/.vimrc"
 alias zshconfig="vim $DOTFILES/.zshrc"
 alias bashconfig="vim $DOTFILES/.bashrc"
 alias cl=clear
+alias vim=nvim
 
 # git aliasses
 alias gst="git status"
@@ -20,12 +20,9 @@ alias gru="git rebase upstream/master"
 alias gro="git rebase origin/main"
 alias gca="git commit --amend --no-edit"
 
-
 #antigen
 source $DOTFILES/antigen.zsh 
-antigen use oh-my-zsh
 antigen bundle z
-antigen bundle git-flow
 antigen theme jackharrisonsherlock/common
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting

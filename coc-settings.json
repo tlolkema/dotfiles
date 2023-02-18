@@ -1,9 +1,0 @@
-{
-"prettier.singleQuote": true,
-"prettier.semi": false,
-"prettier.printWidth": 100,
-"coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "typescript", "javascript", "python"],
-"coc.preferences.formatOnType": true, 
-"coc.preferences.formatOnTypeFiletypes": ["typescript", "javascript"],
-"explorer.quitOnOpen": true 
-}
