@@ -61,4 +61,3 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 DISABLE_AUTO_TITLE="true"
-
