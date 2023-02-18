@@ -43,6 +43,7 @@ bindkey '^w' backward-kill-word
 # Dependencies for the following lines
 zmodload zsh/zle
 autoload -U colors && colors
+autoload -Uz compinit && compinit
 
 # And also a beam as the cursor
 echo -ne '\e[5 q'
