@@ -14,6 +14,7 @@ alias zshconfig="vim $DOTFILES/.zshrc"
 alias cl=clear
 alias vim=nvim
 alias lg=lazygit
+alias cat=bat
 
 # Git aliasses
 alias gst="git status"

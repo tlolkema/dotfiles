@@ -3,6 +3,8 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 brew "python@3.9"
+brew "bat"
+brew "wget"
 brew "bottom"
 brew "deno"
 brew "fzf"
