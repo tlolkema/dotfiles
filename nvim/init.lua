@@ -321,6 +321,16 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
+-- Show diagnostics only for the current line
+vim.diagnostic.config({ virtual_text = false })
+vim.api.nvim_create_autocmd({ "CursorHold" }, {
+	callback = function()
+		if vim.lsp.buf.server_ready() then
+			vim.diagnostic.open_float()
+		end
+	end,
+})
+
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
