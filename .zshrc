@@ -8,6 +8,10 @@ DOTFILES=~/dotfiles
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=$DOTFILES/starship.toml
 
+# fnm (Node version manager)
+eval "$(fnm env --use-on-cd)"
+alias nvm=fnm
+
 # Aliasses
 alias activate="source env/bin/activate"
 alias zshconfig="vim $DOTFILES/.zshrc"
