@@ -22,4 +22,5 @@ brew "tmux"
 brew "yarn"
 brew "fnm"
 
+cask "raycast"
 cask "aws-vault"
