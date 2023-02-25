@@ -4,11 +4,11 @@ response=$(curl -s https://api.openai.com/v1/completions \
   -d '{
   "model": "text-davinci-003",
   "prompt": "'"$1"'",
-  "temperature": 0,
-  "max_tokens": 200
+  "temperature": 0.1,
+  "max_tokens": 600
 }')
 
 generated_text=$(echo "$response" | tr -d '\r' | tr -d '\n' | jq '.choices[].text' | tr -d '"')
 
-echo "$generated_text"
-echo "$generated_text" | pbcopy
+printf "$generated_text"
+printf "$generated_text" | pbcopy

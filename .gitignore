@@ -1,3 +1,4 @@
 .zshrc.zwc
 Brewfile.lock.json
 secrets.zsh
+.DS_Store
