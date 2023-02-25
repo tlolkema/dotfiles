@@ -13,7 +13,7 @@ rm ~/.zshrc
 
 # Symlinks to dotfiles
 ln -s ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
-ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
 
 # Install Zap
 curl -sS https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh | zsh

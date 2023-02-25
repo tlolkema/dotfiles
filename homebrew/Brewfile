@@ -21,6 +21,7 @@ brew "pnpm"
 brew "tmux"
 brew "yarn"
 brew "fnm"
+brew "jq"
 
 cask "raycast"
 cask "aws-vault"

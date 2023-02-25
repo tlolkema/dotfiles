@@ -3,31 +3,16 @@ export LC_ALL=en_US.UTF-8
 
 # Dotfiles
 DOTFILES=~/dotfiles
+source -- "$DOTFILES/zsh/aliases.zsh"
+source -- "$DOTFILES/zsh/secrets.zsh"
+source -- "$DOTFILES/zsh/functions.zsh"
 
 # Set Starship prompt
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG=$DOTFILES/starship.toml
+export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 
 # fnm (Node version manager)
 eval "$(fnm env --use-on-cd)"
-alias nvm=fnm
-
-# Aliasses
-alias activate="source env/bin/activate"
-alias zshconfig="vim $DOTFILES/.zshrc"
-alias cl=clear
-alias vim=nvim
-alias lg=lazygit
-alias cat=bat
-
-# Git aliasses
-alias gst="git status"
-alias gaa="git add ."
-alias gfu="git fetch upstream"
-alias gfo="git fetch origin"
-alias gru="git rebase upstream/master"
-alias gro="git rebase origin/main"
-alias gca="git commit --amend --no-edit"
 
 # Plugins
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
