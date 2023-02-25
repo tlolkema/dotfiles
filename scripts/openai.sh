@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [  ! -n "$OPENAI_API_KEY" ]
   then
     echo "ERROR: Please set an environment variable for OPENAI_API_KEY"
@@ -15,7 +16,7 @@ response=$(curl -s https://api.openai.com/v1/completions \
   "max_tokens": 600
 }')
 
-generated_text=$(printf '%s' "$response" | jq '.choices[].text' | tr -d '"')
+generated_text=$(printf '%s' "$response" | jq '.choices[].text' | tr -d '"' | cut -c 3-)
 
 printf "$generated_text\n"
 printf "$generated_text\n" | pbcopy
