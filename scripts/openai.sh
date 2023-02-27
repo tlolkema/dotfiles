@@ -6,12 +6,14 @@ if [  ! -n "$OPENAI_API_KEY" ]
     exit 1
 fi
 
+clean_input=$(printf '%s' "$1" | tr -d '"' | tr -d '\n')
+
 response=$(curl -s https://api.openai.com/v1/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -d '{
   "model": "text-davinci-003",
-  "prompt": "'"$1"'",
+  "prompt": "'"$clean_input"'",
   "temperature": 0.1,
   "max_tokens": 600
 }')
@@ -20,4 +22,3 @@ generated_text=$(printf '%s' "$response" | jq '.choices[].text' | tr -d '"' | cu
 
 printf "$generated_text\n"
 printf "$generated_text\n" | pbcopy
-
