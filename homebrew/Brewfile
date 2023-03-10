@@ -23,5 +23,6 @@ brew "yarn"
 brew "fnm"
 brew "jq"
 
+cask "meetingbar"
 cask "raycast"
 cask "aws-vault"
