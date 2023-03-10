@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-brew bundle
-brew upgrade
+brew update && brew upgrade && brew bundle
+
