@@ -1,17 +1,15 @@
 DOTFILES=~/dotfiles
 
 ai() {
-    if [ -n "$1" ]
-    then
-        sh "$DOTFILES/scripts/openai.sh" "$1"
-    fi
+    [ -n "$1" ] && sh "$DOTFILES/scripts/openai.sh" "$1"
+}
+
+rewrite() {
+    [ -n "$1" ] && sh "$DOTFILES/scripts/openai.sh" "rewrite this: $1"
 }
 
 NOTES_DIR=~/Documents/Notes
 
 note() {
-    if [ -n "$1" ]
-    then
-        printf "- $1\n\n" >> "$NOTES_DIR/notes.md" 
-    fi
+    [ -n "$1" ] && printf "- $1\n\n" >> "$NOTES_DIR/notes.md" 
 }
