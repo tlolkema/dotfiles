@@ -15,6 +15,9 @@ rm ~/.zshrc
 ln -s ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
 
+## Set defaults
+defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0 && killall Dock
+
 # Install Zap
 curl -sS https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh | zsh
 
