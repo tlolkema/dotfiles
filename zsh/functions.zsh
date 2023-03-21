@@ -8,6 +8,10 @@ rewrite() {
     [ -n "$1" ] && sh "$DOTFILES/scripts/openai.sh" "rewrite this: $1"
 }
 
+swap() {
+    "$DOTFILES/scripts/arrange-displays" "$1"
+}
+
 NOTES_DIR=~/Documents/Notes
 
 note() {
