@@ -8,17 +8,15 @@ fi
 
 clean_input=$(printf '%s' "$1" | tr -d '"' | tr -d '\n')
 
-response=$(curl -s https://api.openai.com/v1/completions \
+response=$(curl -s https://api.openai.com/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -d '{
-  "model": "text-davinci-003",
-  "prompt": "'"$clean_input"'",
-  "temperature": 0.1,
-  "max_tokens": 600
-}')
+    "model": "gpt-4",
+    "messages": [{"role": "user", "content": "'"$clean_input"'"}]
+  }')
 
-generated_text=$(printf '%s' "$response" | jq '.choices[].text' | tr -d '"' | cut -c 3-)
+generated_text=$(printf '%s' "$response" | jq '.choices[0].message.content' | tr -d '"' | cut -c 1-)
 
 printf "$generated_text\n"
 printf "$generated_text\n" | pbcopy
