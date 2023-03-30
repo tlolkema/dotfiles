@@ -23,6 +23,13 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "hlissner/zsh-autopair"
 plug "agkozak/zsh-z"
 plug "koendirkvanesterik/zsh-git"
+plug "zsh-users/zsh-history-substring-search"
+
+# Settings for zsh history substring plugin
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=false
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=false
 
 # Use vim editing mode in terminal [escape to enter normal mode]
 bindkey -v
