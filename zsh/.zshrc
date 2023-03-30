@@ -3,6 +3,11 @@ PATH=$PATH:/opt/homebrew/bin
 # Locale
 export LC_ALL=en_US.UTF-8
 
+# Dependencies for the following lines
+zmodload zsh/zle
+autoload -U colors && colors
+autoload -Uz compinit && compinit
+
 # Dotfiles
 DOTFILES=~/dotfiles
 source -- "$DOTFILES/zsh/aliases.zsh"
@@ -40,11 +45,6 @@ bindkey '^N' down-history
 bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 bindkey '^w' backward-kill-word
-
-# Dependencies for the following lines
-zmodload zsh/zle
-autoload -U colors && colors
-autoload -Uz compinit && compinit
 
 # And also a beam as the cursor
 echo -ne '\e[5 q'
