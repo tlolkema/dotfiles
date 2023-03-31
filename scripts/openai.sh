@@ -16,7 +16,7 @@ response=$(curl -s https://api.openai.com/v1/chat/completions \
     "messages": [{"role": "user", "content": "'"$clean_input"'"}]
   }')
 
-generated_text=$(printf '%s' "$response" | jq '.choices[0].message.content' | tr -d '"' | cut -c 1-)
+generated_text=$(printf '%s' "$response" | jq '.choices[0].message.content' | cut -c 1-)
 
 printf "$generated_text\n"
 printf "$generated_text\n" | pbcopy
