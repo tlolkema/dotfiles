@@ -22,6 +22,8 @@ brew "fnm"
 brew "jq"
 brew "bitwarden-cli"
 brew "corepack"
+brew "docker"
+brew "colima"
 
 cask "meetingbar"
 cask "raycast"

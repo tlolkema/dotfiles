@@ -8,6 +8,11 @@ rewrite() {
     [ -n "$1" ] && sh "$DOTFILES/scripts/openai.sh" "rewrite this: $1"
 }
 
+review() {
+    git diff > ~/gitdiff.txt
+    ai "act as an experienced software developer and review my code: $(cat ~/gitdiff.txt)"
+}
+
 swap() {
     "$DOTFILES/scripts/arrange-displays" "$1"
 }
