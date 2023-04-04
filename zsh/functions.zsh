@@ -10,7 +10,7 @@ rewrite() {
 
 review() {
     git diff > ~/gitdiff.txt
-    ai "act as an experienced software developer and review my code: $(cat ~/gitdiff.txt)"
+    ai "act as an experienced software developer, do not explain what the code is about but explain if there are improvements to be made and what they would be: $(cat ~/gitdiff.txt)"
 }
 
 swap() {
