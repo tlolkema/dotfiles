@@ -10,3 +10,4 @@ alias vi=nvim
 alias lg=lazygit
 alias cat=bat
 alias nvm=fnm
+alias d=docker
