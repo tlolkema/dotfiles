@@ -10,10 +10,12 @@ touch ~/.hushlogin
 # Remove initial dotfiles if present
 rm ~/.config/nvim/init.lua
 rm ~/.zshrc
+rm ~/.gitconfig
 
 # Symlinks to dotfiles
 ln -s ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/dotfiles/git/.gitconfig ~/.gitignore
 
 ## Set defaults
 defaults write com.apple.dock autohide -bool true && defaults write com.apple.dock autohide-delay -float 0 && defaults write com.apple.dock autohide-time-modifier -float 0 && killall Dock
