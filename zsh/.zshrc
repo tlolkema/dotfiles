@@ -1,4 +1,5 @@
-PATH=$PATH:/opt/homebrew/bin
+export GOPATH=~/go
+PATH=$PATH:/opt/homebrew/bin:$GOPATH/bin
 
 # Locale
 export LC_ALL=en_US.UTF-8
