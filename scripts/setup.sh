@@ -4,16 +4,14 @@ touch ~/.hushlogin
 # Create .config directory if it doesn't exist
 [ ! -d ~/.config ] && mkdir ~/.config
 
-# Create .config/nvim directory and init.lua file if it doesn't exist
-[ ! -f ~/.config/nvim/init.lua ] && mkdir ~/.config/nvim && touch ~/.config/nvim/init.lua
-
 # Remove initial dotfiles if present
-rm ~/.config/nvim/init.lua
-rm ~/.zshrc
 rm ~/.gitconfig
+rm ~/.vim/coc-settings.json
+rm ~/.zshrc
+rm ~/.vimrc
 
 # Symlinks to dotfiles
-ln -s ~/dotfiles/nvim/init.lua ~/.config/nvim/init.lua
+ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 
