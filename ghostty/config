@@ -1,5 +1,15 @@
+# Appearance
 theme = catppuccin-mocha
 title = " "
 window-padding-x = 20,20
-background-opacity = 0.98
+background-opacity = 0.97
 macos-titlebar-style = tabs
+font-size = 16
+mouse-hide-while-typing = true
+cursor-color = "#ffffff"
+cursor-style = bar
+
+# Keybinds
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
+keybind = global:cmd+grave_accent=toggle_quick_terminal
