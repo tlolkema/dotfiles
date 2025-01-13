@@ -17,8 +17,8 @@ deleted = "D"
 modified = "M"
 staged = "S"
 untracked = "U"
-ahead = "⇡"
-behind = "⇣"
+ahead = "▲"
+behind = "▼"
 format = "\\[$deleted$modified$staged$untracked$ahead_behind\\] "
 
 # Disable the package module, hiding it from the prompt completely
