@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 400 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(0.472823,0,0,0.472823,-3.5888,74.1575)">
+        <g transform="matrix(123.372,0,0,123.372,461.608,103.547)">
+            <path d="M0.308,-0.755C0.327,-0.755 0.342,-0.75 0.354,-0.738C0.365,-0.726 0.371,-0.712 0.371,-0.695C0.371,-0.678 0.365,-0.663 0.354,-0.652C0.342,-0.64 0.327,-0.634 0.308,-0.634C0.29,-0.634 0.275,-0.64 0.263,-0.652C0.251,-0.663 0.246,-0.678 0.246,-0.695C0.246,-0.712 0.251,-0.726 0.263,-0.738C0.275,-0.75 0.29,-0.755 0.308,-0.755ZM0.376,-0.498L0.376,-0.068L0.529,-0.068L0.529,-0L0.124,-0L0.124,-0.068L0.29,-0.068L0.29,-0.43L0.129,-0.43L0.129,-0.498L0.376,-0.498Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <text x="82.001px" y="103.547px" style="font-family:'FiraCodeNF-Reg', 'FiraCode Nerd Font', monospace;font-size:123.372px;fill:white;">.dotf<tspan x="537.53px " y="103.547px ">l</tspan>es</text>
+    </g>
+</svg>

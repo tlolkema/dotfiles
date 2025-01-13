@@ -1,6 +1,3 @@
-# dotfiles
-My personal dotfiles
-
-- Install homebrew
-- Run `homebrew/upgrade-install.sh`
-- Run `scripts/setup.sh`
+<div align="center">
+  <img src="dotfiles.svg" alt="dotfiles logo" width="400">
+</div>
