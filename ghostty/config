@@ -9,4 +9,3 @@ window-padding-x = 15,15
 # Keybinds
 keybind = cmd+left=previous_tab
 keybind = cmd+right=next_tab
-keybind = global:cmd+grave_accent=toggle_quick_terminal
