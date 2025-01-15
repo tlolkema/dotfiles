@@ -12,3 +12,4 @@ ln -fs ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -fs ~/dotfiles/zsh/.zshrc ~/.zshrc
 ln -fs ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -fs ~/dotfiles/ghostty/config ~/.config/ghostty/config
+ln -fs ~/dotfiles/aerospace/.aerospace.toml ~/.aerospace.toml
