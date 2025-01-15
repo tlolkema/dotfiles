@@ -1,7 +1,7 @@
 tap "homebrew/bundle"
 
 brew "awscli"
-brew "python@3.9"
+brew "python@3.13"
 brew "bat"
 brew "wget"
 brew "fzf"
@@ -19,7 +19,6 @@ brew "jq"
 brew "bitwarden-cli"
 brew "corepack"
 brew "docker"
-brew "colima"
 brew "git-delta"
 
 cask "nikitabobko/tap/aerospace"

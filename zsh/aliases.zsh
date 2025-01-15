@@ -10,4 +10,4 @@ alias cl=clear
 alias lg=lazygit
 alias cat=bat
 alias nvm=fnm
-alias d=docker
+alias docker=podman
