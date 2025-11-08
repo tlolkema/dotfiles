@@ -1,5 +1,10 @@
+
+export PATH="$HOME/.local/bin:$PATH"
 export GOPATH=~/go
 PATH=$PATH:/opt/homebrew/bin:$GOPATH/bin
+
+# Opencode
+export PATH=/Users/timlolkema/.opencode/bin:$PATH
 
 # Locale
 export LC_ALL=en_US.UTF-8
