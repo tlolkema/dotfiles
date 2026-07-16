@@ -1,0 +1,28 @@
+;; Playwright CLI creates a local control socket beneath the macOS per-user
+;; temporary directory, for example:
+;; /var/folders/.../T/pw-12345678/browser/browser@abcdef.sock
+;;
+;; File access permits creating and deleting the socket. The network rules
+;; permit binding, listening, accepting connections, and connecting to it.
+
+(define MACOS_PROCESS_TMP_PATH
+    "^(/private)?/var/folders/[^/]+/[^/]+/T(/.*)?$")
+
+(allow file-read* file-write*
+    (regex MACOS_PROCESS_TMP_PATH)
+)
+
+(allow network-bind
+    (local unix-socket
+        (path-regex MACOS_PROCESS_TMP_PATH))
+)
+
+(allow network-inbound
+    (local unix-socket
+        (path-regex MACOS_PROCESS_TMP_PATH))
+)
+
+(allow network-outbound
+    (remote unix-socket
+        (path-regex MACOS_PROCESS_TMP_PATH))
+)

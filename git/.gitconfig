@@ -1,28 +1,13 @@
-[includeIf "gitdir:~/personal/"]  
-  path = ~/.gitconfig-personal
+[include]
+	path = ~/.gitconfig-personal
 
-[includeIf "gitdir:~/work/"]  
-  path = ~/.gitconfig-labdigital
-
-[init]
-  defaultBranch = main
-
-[core]
-  pager = delta
-
-[interactive]
-  diffFilter = delta --color-only
-
-[delta]
-  navigate = true
-  light = false 
-
-[merge]
-  conflictstyle = diff3
-
-[diff]
-  colorMoved = default
-
+[includeIf "gitdir:~/work/"]
+	path = ~/.gitconfig-labdigital
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [user]
-	name = tlolkema
-	email = tim@detesters.nl
+	name = Tim Lolkema
+	email = mail@timlolkema.nl
