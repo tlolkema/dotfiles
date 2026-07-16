@@ -26,17 +26,6 @@ export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 # fnm (Node version manager)
 eval "$(fnm env --use-on-cd)"
 
-# Run Pi inside the macOS Seatbelt sandbox. The startup directory is writable,
-# host files are readable, and Safehouse keeps selected Pi/tool caches writable.
-# Playwright uses the outer Seatbelt sandbox instead of Chromium's nested one.
-# The appended profile permits playwright-cli control sockets in macOS's temp dir.
-pi() {
-    safehouse \
-        --enable=wide-read,playwright-chrome \
-        --append-profile="$DOTFILES/safehouse/playwright-cli.sb" \
-        -- pi "$@"
-}
-
 # Plugins
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"

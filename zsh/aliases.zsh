@@ -7,7 +7,6 @@ alias zshconfig="vim $DOTFILES/zsh/.zshrc"
 alias code="zed"
 
 alias cl=clear
-alias lg=lazygit
 alias cat=bat
 alias nvm=fnm
 alias docker=podman
