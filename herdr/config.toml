@@ -1,0 +1,6 @@
+[keys]
+previous_tab = "f11"
+next_tab = "f12"
+
+[ui]
+agent_panel_sort = "priority"
