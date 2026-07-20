@@ -4,3 +4,6 @@ next_tab = "f12"
 
 [ui]
 agent_panel_sort = "priority"
+
+[ui.sidebar.spaces]
+row_gap = 1
