@@ -7,6 +7,8 @@ title = " "
 window-padding-x = 15,15
 
 # Keybinds
-keybind = cmd+left=text:\x1b[23~
-keybind = cmd+right=text:\x1b[24~
+keybind = cmd+left=text:\x1b[1;5D
+keybind = cmd+right=text:\x1b[1;5C
+keybind = cmd+up=text:\x1b[1;5A
+keybind = cmd+down=text:\x1b[1;5B
 keybind = shift+enter=text:\n

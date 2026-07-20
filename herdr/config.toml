@@ -1,6 +1,8 @@
 [keys]
-previous_tab = "f11"
-next_tab = "f12"
+previous_tab = "ctrl+left"
+next_tab = "ctrl+right"
+previous_workspace = "ctrl+up"
+next_workspace = "ctrl+down"
 
 [ui]
 agent_panel_sort = "priority"
