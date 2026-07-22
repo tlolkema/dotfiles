@@ -24,7 +24,7 @@ eval "$(starship init zsh)"
 export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 
 # fnm (Node version manager)
-eval "$(fnm env --use-on-cd)"
+eval "$(fnm env --use-on-cd --log-level quiet)"
 
 # Plugins
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"

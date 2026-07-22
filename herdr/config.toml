@@ -1,3 +1,4 @@
+onboarding = false
 [keys]
 previous_tab = "ctrl+left"
 next_tab = "ctrl+right"
@@ -7,5 +8,12 @@ next_workspace = "ctrl+down"
 [ui]
 agent_panel_sort = "priority"
 
+show_agent_labels_on_pane_borders = false
 [ui.sidebar.spaces]
 row_gap = 1
+
+[ui.toast]
+delivery = "herdr"
+
+[experimental]
+pane_history = false
