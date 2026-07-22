@@ -1,0 +1,86 @@
+{
+  "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "name": "onedark",
+  "vars": {
+    "bg":          "#282c34",
+    "bgDark":      "#21252b",
+    "bgLight":     "#3e4452",
+    "selection":   "#3e4452",
+    "gutter":      "#4b5263",
+    "comment":     "#5c6370",
+    "fg":          "#abb2bf",
+
+    "red":         "#e06c75",
+    "orange":      "#d19a66",
+    "yellow":      "#e5c07b",
+    "green":       "#98c379",
+    "cyan":        "#56b6c2",
+    "blue":        "#61afef",
+    "purple":      "#c678dd",
+    "lightRed":    "#be5046"
+  },
+  "colors": {
+    "accent":          "blue",
+    "border":          "gutter",
+    "borderAccent":    "blue",
+    "borderMuted":     "comment",
+    "success":         "green",
+    "error":           "red",
+    "warning":         "yellow",
+    "muted":           "comment",
+    "dim":             "gutter",
+    "text":            "",
+    "thinkingText":    "comment",
+
+    "selectedBg":        "selection",
+    "userMessageBg":     "#2c313c",
+    "userMessageText":   "",
+    "customMessageBg":   "#31353f",
+    "customMessageText": "",
+    "customMessageLabel":"blue",
+    "toolPendingBg":     "#2a2e38",
+    "toolSuccessBg":     "#26312a",
+    "toolErrorBg":       "#31262a",
+    "toolTitle":         "",
+    "toolOutput":        "comment",
+
+    "mdHeading":         "blue",
+    "mdLink":            "cyan",
+    "mdLinkUrl":         "comment",
+    "mdCode":            "cyan",
+    "mdCodeBlock":       "green",
+    "mdCodeBlockBorder": "gutter",
+    "mdQuote":           "comment",
+    "mdQuoteBorder":     "comment",
+    "mdHr":              "gutter",
+    "mdListBullet":      "blue",
+
+    "toolDiffAdded":     "green",
+    "toolDiffRemoved":   "red",
+    "toolDiffContext":   "comment",
+
+    "syntaxComment":     "comment",
+    "syntaxKeyword":     "purple",
+    "syntaxFunction":    "blue",
+    "syntaxVariable":    "red",
+    "syntaxString":      "green",
+    "syntaxNumber":      "orange",
+    "syntaxType":        "yellow",
+    "syntaxOperator":    "cyan",
+    "syntaxPunctuation": "fg",
+
+    "thinkingOff":       "comment",
+    "thinkingMinimal":   "gutter",
+    "thinkingLow":       "blue",
+    "thinkingMedium":    "cyan",
+    "thinkingHigh":      "purple",
+    "thinkingXhigh":     "red",
+
+    "bashMode":          "orange"
+  },
+  "export": {
+    "pageBg":  "#21252b",
+    "cardBg":  "#282c34",
+    "infoBg":  "#3e4452"
+  }
+}
