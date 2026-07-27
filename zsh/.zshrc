@@ -3,7 +3,7 @@ export GOPATH=~/go
 export PATH="/opt/homebrew/bin:$PATH:$GOPATH/bin"
 
 # Opencode
-export PATH=/Users/timlolkema/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 
 # Locale
 export LC_ALL=en_US.UTF-8
@@ -16,12 +16,12 @@ autoload -Uz compinit && compinit
 # Dotfiles
 DOTFILES=~/dotfiles
 source -- "$DOTFILES/zsh/aliases.zsh"
-source -- "$DOTFILES/zsh/secrets.zsh"
+[[ -f "$DOTFILES/zsh/secrets.zsh" ]] && source -- "$DOTFILES/zsh/secrets.zsh"
 source -- "$DOTFILES/zsh/functions.zsh"
 
 # Set Starship prompt
+export STARSHIP_CONFIG="$DOTFILES/starship/starship.toml"
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG=$DOTFILES/starship/starship.toml
 
 # fnm (Node version manager)
 eval "$(fnm env --use-on-cd --log-level quiet)"

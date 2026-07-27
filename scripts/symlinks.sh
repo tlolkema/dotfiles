@@ -1,24 +1,38 @@
-# Create config directories if they don't exist
-mkdir -p ~/.config ~/.pi/agent
+#!/usr/bin/env bash
 
-# Remove initial dotfiles if present
-rm ~/.gitconfig
-rm ~/.zshrc
-rm ~/.vimrc
-rm ~/.config/ghostty/config
-rm ~/.config/herdr/config.toml
-rm ~/.config/hunk/config.toml
-rm -f ~/.pi/agent/settings.json
-rm -rf ~/.pi/agent/extensions ~/.pi/agent/themes
+set -euo pipefail
 
-# Symlinks to dotfiles
-ln -fs ~/dotfiles/vim/.vimrc ~/.vimrc
-ln -fs ~/dotfiles/zsh/.zshrc ~/.zshrc
-ln -fs ~/dotfiles/git/.gitconfig ~/.gitconfig
-ln -fs ~/dotfiles/ghostty/config ~/.config/ghostty/config
-ln -fs ~/dotfiles/herdr/config.toml ~/.config/herdr/config.toml
-ln -fs ~/dotfiles/hunk/config.toml ~/.config/hunk/config.toml
-ln -fs ~/dotfiles/pi/settings.json ~/.pi/agent/settings.json
-ln -fs ~/dotfiles/pi/extensions ~/.pi/agent/extensions
-ln -fs ~/dotfiles/pi/themes ~/.pi/agent/themes
-ln -fs ~/dotfiles/aerospace/.aerospace.toml ~/.aerospace.toml
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+BACKUP_SUFFIX="backup-$(date +%Y%m%d%H%M%S)"
+
+link_dotfile() {
+  local source="$1"
+  local target="$2"
+
+  mkdir -p "$(dirname "$target")"
+
+  if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
+    return
+  fi
+
+  if [[ -e "$target" || -L "$target" ]]; then
+    local backup="${target}.${BACKUP_SUFFIX}"
+    echo "Backing up $target to $backup"
+    mv "$target" "$backup"
+  fi
+
+  ln -s "$source" "$target"
+  echo "Linked $target"
+}
+
+link_dotfile "$DOTFILES/vim/.vimrc" "$HOME/.vimrc"
+link_dotfile "$DOTFILES/vim/coc-settings.json" "$HOME/.vim/coc-settings.json"
+link_dotfile "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
+link_dotfile "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
+link_dotfile "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
+link_dotfile "$DOTFILES/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+link_dotfile "$DOTFILES/hunk/config.toml" "$HOME/.config/hunk/config.toml"
+link_dotfile "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
+link_dotfile "$DOTFILES/pi/settings.json" "$HOME/.pi/agent/settings.json"
+link_dotfile "$DOTFILES/pi/extensions" "$HOME/.pi/agent/extensions"
+link_dotfile "$DOTFILES/pi/themes" "$HOME/.pi/agent/themes"
