@@ -3,18 +3,12 @@
   "mode": "rewrite",
   "guardWhenRtkMissing": true,
   "showRewriteNotifications": true,
-  "rewriteGitGithub": true,
-  "rewriteFilesystem": true,
-  "rewriteRust": true,
-  "rewriteJavaScript": false,
-  "rewritePython": true,
-  "rewriteGo": true,
-  "rewriteContainers": true,
-  "rewriteNetwork": true,
-  "rewritePackageManagers": true,
   "outputCompaction": {
     "enabled": true,
     "stripAnsi": true,
+    "readCompaction": {
+      "enabled": true
+    },
     "sourceCodeFilteringEnabled": false,
     "preserveExactSkillReads": false,
     "truncate": {

@@ -15,6 +15,7 @@
   ],
   "theme": "onedark",
   "packages": [
-    "git:github.com/MasuRii/pi-rtk-optimizer"
+    "git:github.com/MasuRii/pi-rtk-optimizer",
+    "git:github.com/DietrichGebert/ponytail"
   ]
 }

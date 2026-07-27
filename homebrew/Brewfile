@@ -20,6 +20,7 @@ brew "bitwarden-cli"
 brew "corepack"
 brew "docker"
 brew "git-delta"
+brew "rtk"
 brew "starship"
 
 cask "hiddenbar"
