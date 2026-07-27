@@ -1,7 +1,8 @@
 {
   "cli_default_open_behavior": "existing_window",
   "auto_install_extensions": {
-    "aura-theme": true
+    "aura-theme": true,
+    "charmed-icons": true
   },
   "icon_theme": "Warm Charmed Icons",
   "theme": "Aura Dark",
