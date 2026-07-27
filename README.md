@@ -12,4 +12,4 @@ Clone this repository to `~/dotfiles`, then run:
 
 The script installs the Homebrew bundle, Node 24, pi, Zap, and links the managed Vim, Zsh, Git, Ghostty, Herdr, Hunk, Zed, and pi configuration. Existing files at managed locations are backed up before being replaced.
 
-Zed's Aura theme extension and the Dank Mono font must be installed separately. Machine-specific shell secrets belong in `zsh/secrets.zsh`, which is intentionally ignored by Git.
+Zed installs the Aura theme extension automatically and uses its bundled Zed Mono font. Machine-specific shell secrets belong in `zsh/secrets.zsh`, which is intentionally ignored by Git.

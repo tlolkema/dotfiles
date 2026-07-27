@@ -1,5 +1,8 @@
 {
   "cli_default_open_behavior": "existing_window",
+  "auto_install_extensions": {
+    "aura-theme": true
+  },
   "icon_theme": "Warm Charmed Icons",
   "theme": "Aura Dark",
   "theme_overrides": {
@@ -78,9 +81,9 @@
   "indent_guides": {
     "enabled": false
   },
-  "ui_font_family": "Dank Mono",
+  "ui_font_family": "Zed Mono",
   "ui_font_size": 20,
-  "buffer_font_family": "Dank Mono",
+  "buffer_font_family": "Zed Mono",
   "buffer_font_size": 20,
   "buffer_line_height": {
     "custom": 2

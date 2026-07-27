@@ -1,5 +1,4 @@
 tap "homebrew/bundle"
-tap "eugene1g/safehouse"
 
 brew "python@3.13"
 brew "bat"
@@ -21,7 +20,6 @@ brew "corepack"
 brew "docker"
 brew "git-delta"
 brew "starship"
-brew "agent-safehouse"
 
 cask "nikitabobko/tap/aerospace"
 cask "hiddenbar"
