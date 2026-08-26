@@ -20,6 +20,7 @@ const FOOTER_CONFIG = {
   showCost: false, // $0.012
   showContextUsage: true, // 42% ctx
   showCwd: true, // ~/work/my-project
+  showThinkingLevel: true, // thinking: low
   showMode: false,
   showStatuses: true, // extension status pills
   showGitBranch: true, // (main)
@@ -125,6 +126,10 @@ export default function (pi: ExtensionAPI) {
             rightParts.push(muted(short));
           }
 
+          if (cfg.showThinkingLevel) {
+            rightParts.push(muted(`thinking: ${pi.getThinkingLevel()}`));
+          }
+
           if (cfg.showMode) {
             if (planExecutionMode) {
               rightParts.push(theme.fg("warning", "executing plan"));
@@ -172,6 +177,10 @@ export default function (pi: ExtensionAPI) {
 
   // Install footer on session start
   pi.on("session_start", async (_event, ctx) => {
+    if (enabled) applyFooter(ctx);
+  });
+
+  pi.on("thinking_level_select", async (_event, ctx) => {
     if (enabled) applyFooter(ctx);
   });
 
