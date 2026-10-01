@@ -2,13 +2,11 @@
   "quietStartup": true,
   "lastChangelogVersion": "999999999.0.0",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-astra",
-  "defaultThinkingLevel": "low",
+  "defaultModel": "gpt-6.1-sol",
+  "defaultThinkingLevel": "high",
   "enabledModels": [
-    "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.6-terra",
-    "openai-codex/gpt-5.6-luna",
-    "openai-codex/gpt-6-astra"
+    "openai-codex/gpt-6-astra",
+    "openai-codex/gpt-6.1-sol"
   ],
   "skills": [
     "~/.claude/skills",
