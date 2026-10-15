@@ -3,15 +3,16 @@
  *
  * Shows a configurable footer with:
  *   LEFT:  token usage · cost · context usage %
- *   RIGHT: cwd · thinking level · extension statuses · git branch · model
+ *   RIGHT: cwd · thinking level · extension statuses · git branch · model + session limit
  *
  * Toggle with /footer. Configure which items appear by editing FOOTER_CONFIG below.
  */
 
-import type { AssistantMessage } from "@mariozechner/pi-ai";
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import { truncateToWidth, visibleWidth } from "@mariozechner/pi-tui";
+import type { AssistantMessage } from "@earendil-works/pi-ai";
+import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
+import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
 import * as path from "node:path";
+import { fetchSessionLimit, formatSessionLimit, supportsSessionLimit, type SessionLimit } from "./usage.ts";
 
 // ─── Configuration ────────────────────────────────────────────────────────────
 // Set any item to `false` to hide it from the footer.
@@ -25,6 +26,7 @@ const FOOTER_CONFIG = {
   showStatuses: true, // extension status pills
   showGitBranch: true, // (main)
   showModel: true, // claude-sonnet-4-6
+  showSessionLimit: true, // OpenAI/Codex: 70% 4h32m
 };
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -33,6 +35,8 @@ export default function (pi: ExtensionAPI) {
   let planModeEnabled = false;
   let planExecutionMode = false;
   let viewOnlyEnabled = false;
+  let stopFooter = () => {};
+  let refreshUsage = () => {};
 
   // Track plan mode state from the plan-mode extension via the event bus
   pi.events.on("plan-mode:change", (data) => {
@@ -46,12 +50,45 @@ export default function (pi: ExtensionAPI) {
     viewOnlyEnabled = d.enabled;
   });
 
-  function applyFooter(ctx: Parameters<Parameters<(typeof pi)["on"]>[1]>[1]) {
+  function applyFooter(ctx: ExtensionContext) {
+    stopFooter();
+    if (!ctx.hasUI) return;
     ctx.ui.setFooter((tui, theme, footerData) => {
       const unsub = footerData.onBranchChange(() => tui.requestRender());
+      const controller = new AbortController();
+      let sessionLimit: SessionLimit | undefined;
+      let pending = false;
+      let lastRefresh = 0;
+      const provider = ctx.model?.provider;
+      const showLimit = FOOTER_CONFIG.showModel && FOOTER_CONFIG.showSessionLimit && supportsSessionLimit(provider);
+      refreshUsage = () => {
+        if (!showLimit || pending || controller.signal.aborted || Date.now() - lastRefresh < 15_000) return;
+        pending = true;
+        lastRefresh = Date.now();
+        void fetchSessionLimit(
+          provider,
+          (name) => ctx.modelRegistry.getApiKeyForProvider(name),
+          controller.signal,
+        ).catch(() => undefined).then((limit) => {
+          if (controller.signal.aborted) return;
+          sessionLimit = limit;
+          tui.requestRender();
+        }).finally(() => { pending = false; });
+      };
+      // Fetch outside render and keep the quota/countdown current while idle.
+      const timer = showLimit ? setInterval(refreshUsage, 60_000) : undefined;
+      timer?.unref();
+      refreshUsage();
+      const dispose = () => {
+        if (controller.signal.aborted) return;
+        controller.abort();
+        clearInterval(timer);
+        unsub();
+      };
+      stopFooter = dispose;
 
       return {
-        dispose: unsub,
+        dispose,
         invalidate() {},
         render(width: number): string[] {
           const cfg = FOOTER_CONFIG;
@@ -154,7 +191,8 @@ export default function (pi: ExtensionAPI) {
 
           if (cfg.showModel) {
             const modelId = ctx.model?.id ?? "no-model";
-            rightParts.push(muted(modelId));
+            const limit = showLimit ? formatSessionLimit(sessionLimit) : "";
+            rightParts.push(muted(modelId + (limit ? ` (${limit})` : "")));
           }
 
           if (viewOnlyEnabled) {
@@ -184,6 +222,18 @@ export default function (pi: ExtensionAPI) {
     if (enabled) applyFooter(ctx);
   });
 
+  pi.on("model_select", async (_event, ctx) => {
+    if (enabled) applyFooter(ctx);
+  });
+
+  pi.on("agent_end", async () => {
+    if (enabled) refreshUsage();
+  });
+
+  pi.on("session_shutdown", async () => {
+    stopFooter();
+  });
+
   // Toggle command
   pi.registerCommand("footer", {
     description: "Toggle the custom footer on/off",
@@ -193,6 +243,7 @@ export default function (pi: ExtensionAPI) {
         applyFooter(ctx);
         ctx.ui.notify("Custom footer enabled", "info");
       } else {
+        stopFooter();
         ctx.ui.setFooter(undefined);
         ctx.ui.notify("Default footer restored", "info");
       }
