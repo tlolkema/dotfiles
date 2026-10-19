@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "fastmail": {
+      "url": "https://api.fastmail.com/mcp",
+      "exposure": "deferred",
+      "description": "Use Fastmail whenever the user asks to find, search, read, or summarize email, inbox messages, or email threads. Also supports contacts and calendars."
+    }
+  }
+}

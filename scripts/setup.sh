@@ -25,6 +25,11 @@ fi
 
 brew bundle --file "$DOTFILES/homebrew/Brewfile"
 
+# Use Herdr's official installer to support live update handoff.
+if [[ ! -x "$HOME/.local/bin/herdr" ]]; then
+  curl -fsSL https://herdr.dev/install.sh | sh
+fi
+
 # Install a Node runtime through fnm and install pi.
 eval "$(fnm env)"
 fnm install 24
@@ -37,6 +42,7 @@ if [[ ! -f "$HOME/.local/share/zap/zap.zsh" ]]; then
 fi
 
 "$DOTFILES/scripts/symlinks.sh"
+"$DOTFILES/homebrew/install-auto-update.sh"
 
 # Configure an immediate, automatically hidden Dock.
 defaults write com.apple.dock autohide -bool true
