@@ -15,5 +15,8 @@ row_gap = 1
 [ui.toast]
 delivery = "herdr"
 
+[ui.sound]
+enabled = false
+
 [experimental]
 pane_history = false
