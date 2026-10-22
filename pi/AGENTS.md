@@ -1,5 +1,9 @@
 # Personal Instructions
 
+## Writing
+
+- At the start of every new conversation, load the `asd-ste100` skill by name and follow its guidance when applicable.
+
 ## Email
 
 - Whenever the user asks to find, search, read, or summarize email, inbox messages, or email threads, use the `fastmail` MCP server. Discover its tools with `tool_search` as needed.
