@@ -19,7 +19,15 @@ export function serverConfig(entry: any, directory: string): McpServerConfig {
 	if (Boolean(entry.command) === Boolean(entry.url)) {
 		throw new Error(`${entry.name}: specify either command or url`);
 	}
-	if (entry.url) return { url: entry.url, headers: entry.headers, exposure: "deferred" };
+	if (entry.url) {
+		return {
+			url: entry.url,
+			headers: entry.headers,
+			exposure: "deferred",
+			// Use Pi's documented client-name compatibility setting for Figma.
+			...(entry.url === "https://mcp.figma.com/mcp" ? { oauth: { clientName: "Claude Code" } } : {}),
+		};
+	}
 	const variables = entry.env ?? [];
 	if (!Array.isArray(variables) || variables.some((name) => typeof name !== "string" || !/^[A-Za-z_][A-Za-z0-9_]*$/.test(name))) {
 		throw new Error(`${entry.name}: env must be an array of environment variable names`);
