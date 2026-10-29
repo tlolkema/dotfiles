@@ -35,6 +35,7 @@ eval "$(fnm env)"
 fnm install 24
 fnm default 24
 npm install --global @earendil-works/pi-coding-agent
+npm ci --ignore-scripts --prefix "$DOTFILES/pi/extensions/agents-mcp"
 
 # Zap's installer may create .zshrc, so install it before linking dotfiles.
 if [[ ! -f "$HOME/.local/share/zap/zap.zsh" ]]; then

@@ -14,6 +14,7 @@
   ],
   "theme": "onedark",
   "packages": [
-    "git:github.com/MasuRii/pi-rtk-optimizer"
+    "git:github.com/MasuRii/pi-rtk-optimizer",
+    "npm:@jerryan/pi-subagent-lite@0.2.0"
   ]
 }

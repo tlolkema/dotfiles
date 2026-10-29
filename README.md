@@ -33,6 +33,14 @@ launchctl bootout "gui/$(id -u)/com.timlolkema.homebrew-autoupdate"
 rm ~/Library/LaunchAgents/com.timlolkema.homebrew-autoupdate.plist
 ```
 
+## Sub-agents in pi
+
+`@jerryan/pi-subagent-lite` provides one `subagent` tool for all agent roles. `pi/AGENTS.md` defines role mapping and delegated skill instructions.
+
+## Project MCP servers from agents.toml
+
+`pi/extensions/agents-mcp` loads `[[mcp]]` entries from trusted projects' `agents.toml` files. Parent sessions and subagents share the configuration without generating files. Credentials remain outside Git.
+
 ## Fastmail in pi
 
 The setup links `pi/mcp.json` and `pi/AGENTS.md` into `~/.pi/agent/`, making Fastmail available for email requests in every project. Sign in using OAuth:
@@ -42,4 +50,4 @@ pi mcp login fastmail
 pi mcp list
 ```
 
-Approve read-only access for email search and summaries. OAuth credentials stay in `~/.pi/agent/mcp-auth.json`, outside this repository. Run `/reload` in an existing pi session after setup.
+Approve read-only access for email search and summaries. OAuth credentials stay in `~/.pi/agent/mcp-auth.json`, outside this repository.

@@ -4,6 +4,13 @@
 
 - At the start of every new conversation, load the `asd-ste100` skill by name and follow its guidance when applicable.
 
+## Sub-agents
+
+- When a skill requests any sub-agent, use the `subagent` tool regardless of the requested agent name. Agent names are roles, not separate definitions.
+- Include the requested agent name, role, task, and restrictions in the `task` parameter. Treat `explore` as read-only research.
+- For a delegated skill, include its absolute `SKILL.md` path in `task`. Require the child to read and follow that file before doing the work.
+- Do not rely on the `skills` parameter to load full instructions. If you use it, supply absolute skill paths, not bare names.
+
 ## Web Research and Browsing
 
 - Use `agent-browser` only when the task requires a real browser, such as interactive navigation, login, form entry, screenshots, or browser testing.
